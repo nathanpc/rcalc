@@ -4,3 +4,5 @@
 var onload = function () {
 	//
 }
+
+var bands_onchange = function () {}
