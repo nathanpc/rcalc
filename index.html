@@ -2,10 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>rCalc - Resistance Color Code Calculator</title>
+		<meta id="viewport" name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no, target-densitydpi=device-dpi" />
+		<title>rCalc - Graphical Resistance Calculator</title>
 
 		<!-- Styling -->
-		<link rel="stylesheet" type="text/css" href="http://necolas.github.com/normalize.css/2.1.1/normalize.css">
+		<link rel="stylesheet" type="text/css" href="lib/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 
 		<!-- Javascript -->
@@ -13,8 +14,12 @@
 		<script src="js/resistance.js" type="text/javascript"></script>
 	</head>
 	<body onload="onload()">
-		<header>
-			<h1>rCalc</h1>
+		<div id="header-canvas-container">
+			<canvas id="header-resistor" width="200" height="49"></canvas>
+		</div>
+
+		<header>		
+			<p class="header-label">rCalc</p>
 		</header>
 
 		<div id="Home" class="screen">
@@ -84,7 +89,10 @@
 			</div>
 
 			<div align="center">
-				<canvas id="resistor" width="300" height="200"></canvas>
+				<canvas id="resistor" width="300" height="200">
+					<h1>What kind of shit are you using that doesn't support HTML5? Internet Explorer?</h1>
+					<h2>Please use something that isn't a piece of shit from 2002. You should try real browsers like <a href="http://chrome.google.com/">Chrome</a> or <a href="http://firefox.com/">Firefox</a>.</h2>
+				</canvas>
 			</div>
 		</div>
 	</body>

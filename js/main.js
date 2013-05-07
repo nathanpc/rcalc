@@ -1,22 +1,23 @@
 // main.js
-// The mains power.
+// The mains.
 
-var canvas, context = null;
+// Selected bands.
 var sel_bands = {
 	values: [ "black", "black", "black" ],
 	tolerance: "gold"
 };
 
 /**
- * Just a simple onLoad event handler.s
+ * Just a simple onLoad event handler.
  */
-var onload = function () {
-	canvas = document.getElementById("resistor");
-	context = canvas.getContext("2d");
-
+function onload() {
 	var list = [ resistance.values.red.color, resistance.values.green.color, resistance.values.blue.color, resistance.values.gold.color ];
-	canvas_helper.band_width = canvas.width / ((list.length * 2) + 2);
-	canvas_helper.draw_resistor(list);
+
+	var resistor_canvas = new ResistorCanvas(document.getElementById("resistor"));
+	resistor_canvas.draw_resistor(list);
+
+	var resistor2_canvas = new ResistorCanvas(document.getElementById("header-resistor"));
+	resistor2_canvas.draw_resistor(list);
 }
 
 /**
@@ -25,7 +26,7 @@ var onload = function () {
  * @param {Number} band Band index.
  * @param {Element} elem Which element fired the event.
  */
-var bands_onchange = function (band, elem) {
+function bands_onchange(band, elem) {
 	// Check if it's a normal band or the special tolerance one.
 	if (band !== "tolerance") {
 		// Set band.
@@ -41,21 +42,27 @@ var bands_onchange = function (band, elem) {
 
 
 /**
- * Just helps with the canvas stuff.
+ * Helper class to create a resistor using a <canvas>
+ *
+ * @constructor
+ * @param {Element} canvas A canvas element.
  */
-var canvas_helper = {
-	band_width: 0,
-	curr_stripe: 0
-};
+function ResistorCanvas(canvas) {
+	this.band_width = 0;
+	this.curr_stripe = 0;
+
+	this.canvas = canvas;
+	this.context = canvas.getContext("2d");
+}
 
 /**
  * Draw a single resistor band to the canvas.
  *
  * @param {String} color The band color.
  */
-canvas_helper.draw_band = function (color) {
-	context.fillStyle = color;
-	context.fillRect(canvas_helper.band_width * canvas_helper.curr_stripe++, 0, canvas_helper.band_width, canvas.height);
+ResistorCanvas.prototype.draw_band = function (color) {
+	this.context.fillStyle = color;
+	this.context.fillRect(this.band_width * this.curr_stripe++, 0, this.band_width, this.canvas.height);
 }
 
 /**
@@ -63,19 +70,21 @@ canvas_helper.draw_band = function (color) {
  *
  * @param {Array} list Bands array.
  */
-canvas_helper.draw_resistor = function (list) {
+ResistorCanvas.prototype.draw_resistor = function (list) {
 	var resistor_color = "rgb(188, 137, 93)";
-	canvas_helper.curr_stripe = 0;
+
+	this.band_width = this.canvas.width / ((list.length * 2) + 2);
+	this.curr_stripe = 0;
 
 	// Draw the middle stripes.
 	for (var i = 0; i < list.length - 1; i++) {
-		canvas_helper.draw_band(resistor_color);
-		canvas_helper.draw_band(list[i]);
+		this.draw_band(resistor_color);
+		this.draw_band(list[i]);
 	}
 
 	// Draw tolerance band.
-	canvas_helper.draw_band(resistor_color);
-	canvas_helper.draw_band(resistor_color);
-	canvas_helper.draw_band(list[list.length - 1]);
-	canvas_helper.draw_band(resistor_color);
+	this.draw_band(resistor_color);
+	this.draw_band(resistor_color);
+	this.draw_band(list[list.length - 1]);
+	this.draw_band(resistor_color);
 }
