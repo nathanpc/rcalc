@@ -14,7 +14,7 @@ var onload = function () {
 	canvas = document.getElementById("resistor");
 	context = canvas.getContext("2d");
 
-	var list = [ "green", "red", "blue", "gold" ];
+	var list = [ resistance.values.red.color, resistance.values.green.color, resistance.values.blue.color, resistance.values.gold.color ];
 	canvas_helper.band_width = canvas.width / ((list.length * 2) + 2);
 	canvas_helper.draw_resistor(list);
 }
@@ -64,17 +64,18 @@ canvas_helper.draw_band = function (color) {
  * @param {Array} list Bands array.
  */
 canvas_helper.draw_resistor = function (list) {
+	var resistor_color = "rgb(188, 137, 93)";
 	canvas_helper.curr_stripe = 0;
 
 	// Draw the middle stripes.
 	for (var i = 0; i < list.length - 1; i++) {
-		canvas_helper.draw_band("yellow");
+		canvas_helper.draw_band(resistor_color);
 		canvas_helper.draw_band(list[i]);
 	}
 
 	// Draw tolerance band.
-	canvas_helper.draw_band("yellow");
-	canvas_helper.draw_band("yellow");
+	canvas_helper.draw_band(resistor_color);
+	canvas_helper.draw_band(resistor_color);
 	canvas_helper.draw_band(list[list.length - 1]);
-	canvas_helper.draw_band("yellow");
+	canvas_helper.draw_band(resistor_color);
 }
