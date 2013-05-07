@@ -73,3 +73,9 @@ header > .header-label {
 #select-group > select {
 	margin: 10px;
 }
+
+#result {
+	margin: 0;
+	font-size: 1.2em;
+	font-weight: bold;
+}

@@ -19,7 +19,8 @@ function onload() {
 	resistor_canvas = new ResistorCanvas(document.getElementById("resistor"));
 	header_canvas = new ResistorCanvas(document.getElementById("header-resistor"));
 
-	// Draw stuff in the canvas for the first time.
+	// Draw stuff in the canvas for the first time and update the result.
+	update_result();
 	update_canvas();
 }
 
@@ -40,10 +41,19 @@ function bands_onchange(band, elem) {
 	}
 
 	// Calculate and pretty print.
-	console.log(resistance.pretty_print(resistance.calc(sel_bands.values), sel_bands.tolerance));
+	update_result();
 
-	// Update the canvas.
+	// Update the canvas and the result label.
 	update_canvas();
+}
+
+/**
+ *	Updates the result label according to the bands selected.
+ */
+function update_result() {
+	var result = resistance.pretty_print(resistance.calc(sel_bands.values), sel_bands.tolerance);
+
+	document.getElementById("result").innerHTML = result;
 }
 
 /**

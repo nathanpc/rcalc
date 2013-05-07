@@ -132,7 +132,7 @@ resistance.pretty_print = function (value, tolerance, use_symbol) {
 
 	// Tolenrance.
 	if (tolerance !== undefined) {
-		result +=  "\u00B1" + resistance.values[tolerance].tolerance + "%";
+		result += " \u00B1" + resistance.values[tolerance].tolerance + "%";
 	}
 
 	return result;
