@@ -18,51 +18,91 @@
 		</header>
 
 		<div id="Home" class="screen">
+			<div id="select-group" align="center">
+				<select name="band1" onchange="bands_onchange(0, this)">
+					<option value="black" selected>Black</option>
+					<option value="brown">Brown</option>
+					<option value="red">Red</option>
+					<option value="orange">Orange</option>
+					<option value="yellow">Yellow</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+					<option value="violet">Violet</option>
+					<option value="gray">Gray</option>
+					<option value="white">White</option>
+				</select>
+
+				<select name="band2" onchange="bands_onchange(1, this)">
+					<option value="black" selected>Black</option>
+					<option value="brown">Brown</option>
+					<option value="red">Red</option>
+					<option value="orange">Orange</option>
+					<option value="yellow">Yellow</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+					<option value="violet">Violet</option>
+					<option value="gray">Gray</option>
+					<option value="white">White</option>
+				</select>
+
+				<!--<select name="band3">
+					<option value="black" selected>Black</option>
+					<option value="brown">Brown</option>
+					<option value="red">Red</option>
+					<option value="orange">Orange</option>
+					<option value="yellow">Yellow</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+					<option value="violet">Violet</option>
+					<option value="gray">Gray</option>
+					<option value="white">White</option>
+				</select>-->
+
+				<select name="multiplier" onchange="bands_onchange(2, this)">
+					<option value="black" selected>Black</option>
+					<option value="brown">Brown</option>
+					<option value="red">Red</option>
+					<option value="orange">Orange</option>
+					<option value="yellow">Yellow</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+					<option value="violet">Violet</option>
+					<!--<option value="gray">Gray</option>
+					<option value="white">White</option>-->
+				</select>
+
+				<select name="tolerance" onchange="bands_onchange('tolerance', this)">
+					<option value="brown">Brown</option>
+					<option value="red">Red</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+					<option value="violent">Violet</option>
+					<option value="gray">Gray</option>
+					<option value="gold" selected>Gold</option>
+					<option value="silver">Silver</option>
+				</select>
+			</div>
+
+			<div align="center">
+				<canvas id="resistor" width="300" height="200" style="border: 1px solid #000"></canvas>
+			</div>
+
+			<!--<div id="resistor">
+				<ul>
+					<li style="background-color: yellow;"></li>
+					<li style="background-color: yellow;"></li>
+					<li style="background-color: red;"></li>
+					<li style="background-color: yellow;"></li>
+					<li style="background-color: green;"></li>
+					<li style="background-color: yellow;"></li>
+					<li style="background-color: blue;"></li>
+					<li style="background-color: yellow;"></li>
+					<li style="background-color: gold;"></li>
+					<li style="background-color: yellow;"></li>
+					<li style="background-color: yellow;"></li>
+				</ul>
+			</div>-->
 			<!-- Maybe use a canvas to draw the resistor -->
-			<select name="band1">
-				<option value="black" selected>Black</option>
-				<option value="brown">Brown</option>
-				<option value="red">Red</option>
-				<option value="orange">Orange</option>
-				<option value="yellow">Yellow</option>
-				<option value="green">Green</option>
-				<option value="blue">Blue</option>
-				<option value="violet">Violet</option>
-				<option value="gray">Gray</option>
-				<option value="white">White</option>
-			</select>
-
-			<select name="band2">
-				<option value="black" selected>Black</option>
-				<option value="brown">Brown</option>
-				<option value="red">Red</option>
-				<option value="orange">Orange</option>
-				<option value="yellow">Yellow</option>
-				<option value="green">Green</option>
-				<option value="blue">Blue</option>
-				<option value="violet">Violet</option>
-				<option value="gray">Gray</option>
-				<option value="white">White</option>
-			</select>
-
-			<select name="band3">
-				<option value="black" selected>Black</option>
-				<option value="brown">Brown</option>
-				<option value="red">Red</option>
-				<option value="orange">Orange</option>
-				<option value="yellow">Yellow</option>
-				<option value="green">Green</option>
-				<option value="blue">Blue</option>
-				<option value="violet">Violet</option>
-				<option value="gray">Gray</option>
-				<option value="white">White</option>
-			</select>
-
-			<select name="band4">
-				<option value="gold" selected>Gold</option>
-				<option value="silver">Silver</option>
-				<option value="none">None</option>
-			</select>
 		</div>
 	</body>
 </html>
