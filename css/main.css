@@ -1,4 +1,6 @@
 /* main.css */
 /* General styling */
 
-
+#select-group > select {
+	margin: 10px;
+}
