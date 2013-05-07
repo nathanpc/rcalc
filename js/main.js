@@ -1,6 +1,10 @@
 // main.js
 // The mains.
 
+
+var resistor_canvas = null;
+var header_canvas = null;
+
 // Selected bands.
 var sel_bands = {
 	values: [ "black", "black", "black" ],
@@ -11,13 +15,12 @@ var sel_bands = {
  * Just a simple onLoad event handler.
  */
 function onload() {
-	var list = [ resistance.values.red.color, resistance.values.green.color, resistance.values.blue.color, resistance.values.gold.color ];
+	// Setup some canvas stuff.
+	resistor_canvas = new ResistorCanvas(document.getElementById("resistor"));
+	header_canvas = new ResistorCanvas(document.getElementById("header-resistor"));
 
-	var resistor_canvas = new ResistorCanvas(document.getElementById("resistor"));
-	resistor_canvas.draw_resistor(list);
-
-	var resistor2_canvas = new ResistorCanvas(document.getElementById("header-resistor"));
-	resistor2_canvas.draw_resistor(list);
+	// Draw stuff in the canvas for the first time.
+	update_canvas();
 }
 
 /**
@@ -38,6 +41,22 @@ function bands_onchange(band, elem) {
 
 	// Calculate and pretty print.
 	console.log(resistance.pretty_print(resistance.calc(sel_bands.values), sel_bands.tolerance));
+
+	// Update the canvas.
+	update_canvas();
+}
+
+/**
+ *	Updates the canvas according to the bands selected.
+ */
+function update_canvas() {
+	var list = sel_bands.values.concat(sel_bands.tolerance);
+	for (var i = 0; i < list.length; i++) {
+		list[i] = ResistorCanvas.get_color(list[i]);
+	}
+
+	resistor_canvas.draw_resistor(list);
+	header_canvas.draw_resistor(list);
 }
 
 
@@ -53,6 +72,16 @@ function ResistorCanvas(canvas) {
 
 	this.canvas = canvas;
 	this.context = canvas.getContext("2d");
+}
+
+/**
+ *	Get the correct color code from the resistance.values JSON.
+ *
+ *	@param {String} name Color name.
+ *	@return {String} Correct color code.
+ */
+ResistorCanvas.get_color = function (name) {
+	return resistance.values[name].color;
 }
 
 /**
