@@ -16,7 +16,7 @@ var sel_bands = {
  */
 function onload() {
 	// Setup some canvas stuff.
-	resistor_canvas = new ResistorCanvas(document.getElementById("resistor"));
+	//resistor_canvas = new ResistorCanvas(document.getElementById("resistor"));
 	header_canvas = new ResistorCanvas(document.getElementById("header-resistor"));
 
 	// Draw stuff in the canvas for the first time and update the result.
@@ -65,7 +65,7 @@ function update_canvas() {
 		list[i] = ResistorCanvas.get_color(list[i]);
 	}
 
-	resistor_canvas.draw_resistor(list);
+	//resistor_canvas.draw_resistor(list);
 	header_canvas.draw_resistor(list);
 }
 

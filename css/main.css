@@ -7,7 +7,7 @@ html {
 }
 
 #header-canvas-container {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 
@@ -16,12 +16,6 @@ html {
 
 	background-color: rgb(188, 137, 93);
 	z-index: 899;
-}
-
-@media all and (max-width: 440px) {
-	#header-canvas-container {
-		text-align: center;
-	}
 }
 
 header {
@@ -64,6 +58,22 @@ header > .header-label {
 	font-weight: bold;
 
 	z-index: 902;
+}
+
+@media all and (min-width: 440px) {
+	header > .header-label {
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 440px) {
+	#header-canvas-container {
+		text-align: center;
+	}
+
+	header > .header-label {
+		margin-left: 10px;
+	}
 }
 
 .screen {
