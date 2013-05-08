@@ -1,22 +1,22 @@
 {
-	version: "0.1",
-	name: "rCalc",
-	description: "A awesome graphical resistance color code calculator",
-	launch_path: "/",
-	icons: {
+	"version": "0.1",
+	"name": "rCalc",
+	"description": "A awesome graphical resistance color code calculator",
+	"launch_path": "/",
+	"icons": {
 		"60": "/res/ffos-icon-60.png",
 		"128": "/res/ffos-icon-128.png"
 	},
-	developer: {
-		name: "Nathan Campos",
-		url: "http://dreamintech.net/"
+	"developer": {
+		"name": "Nathan Campos",
+		"url": "http://dreamintech.net/"
 	},
-	installs_allowed_from: ["*"],
-	locales: {
-		pt: {
-			description: "Calculadora gráfica de resistência"
+	"installs_allowed_from": ["*"],
+	"locales": {
+		"pt": {
+			"description": "Calculadora gráfica de resistência"
 		}
 	},
-	default_locale: "en",
-	permissions: {}
+	"default_locale": "en",
+	"permissions": {}
 }
