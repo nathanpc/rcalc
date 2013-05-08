@@ -82,6 +82,15 @@ function ResistorCanvas(canvas) {
 
 	this.canvas = canvas;
 	this.context = canvas.getContext("2d");
+
+	// Setup for hi-res displays.
+	if (window.devicePixelRatio > 1) {
+		this.canvas.width = this.canvas.width * window.devicePixelRatio;
+		this.canvas.height = this.canvas.height * window.devicePixelRatio;
+
+		this.canvas.style.width = this.canvas.width / window.devicePixelRatio + "px";
+		this.canvas.style.height = this.canvas.height / window.devicePixelRatio + "px";
+	}
 }
 
 /**
