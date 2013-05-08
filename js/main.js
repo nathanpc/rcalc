@@ -22,6 +22,27 @@ function onload() {
 	// Draw stuff in the canvas for the first time and update the result.
 	update_result();
 	update_canvas();
+
+	// Check if it's a Firefox OS phone.
+	if (navigator.mozApps) {
+		if (navigator.mozApps.getInstalled() === {}) {
+			if (confirm("Looks like you're using a Firefox OS phone. Would you like to install this as an app?")) {
+				var app = navigator.mozApps.install("http://nathan-camposs-macbook-pro.local/~Nathan/resistance-calc/manifest.webapp");
+
+				app.onsuccess = function (data) {
+					console.log("Installed on Firefox OS");
+					alert("Installation successful!");
+					// TODO: Fire a Analytics event.
+				}
+
+				app.onerror = function () {
+					alert("Something bad happened while trying to install the app:" + this.error.name);
+				}
+			} else {
+				// TODO: Maybe use the DOMRequest.error === "DENIED" instead of that confirm()?
+			}
+		}
+	}
 }
 
 /**
