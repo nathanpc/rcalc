@@ -37,24 +37,33 @@ function onload() {
 	update_result();
 	update_canvas();
 
-	// Check if it's a Firefox OS phone.
+	// Firefox OS stuff.
 	if (navigator.mozApps) {
-		if (navigator.mozApps.getInstalled() === {}) {
-			if (confirm("Looks like you're using a Firefox OS phone. Would you like to install this as an app?")) {
-				var app = navigator.mozApps.install("http://nathan-camposs-macbook-pro.local/~Nathan/resistance-calc/manifest.webapp");
+		var request = navigator.mozApps.getSelf();
+		request.onsuccess = function() {
+			if (!request.result) {
+				// Not installed
+				if (confirm("Looks like you're using a Firefox OS phone. Would you like to install this as an app?")) {
+					var app = navigator.mozApps.install("http://rcalc.dreamintech.net/manifest.webapp");
 
-				app.onsuccess = function (data) {
-					console.log("Installed on Firefox OS");
-					alert("Installation successful!");
-					// TODO: Fire a Analytics event.
-				}
+					app.onsuccess = function (data) {
+						console.log("Installed on Firefox OS");
+						// TODO: Fire a Analytics event.
+					}
 
-				app.onerror = function () {
-					alert("Something bad happened while trying to install the app:" + this.error.name);
+					app.onerror = function () {
+						alert("Something bad happened while trying to install the app:" + this.error.name);
+					}
+				} else {
+					// The user doesn't want me... :'(
+					alert("That's ok. If you change your mind in the future you can search for 'rCalc' in the Firefox Marketplace");
+					// TODO: Use localStorage to prevent this from appearing again.
 				}
-			} else {
-				// TODO: Maybe use the DOMRequest.error === "DENIED" instead of that confirm()?
 			}
+		}
+
+		request.onerror = function() {
+			alert("Error checking installation status: " + this.error.message);
 		}
 	}
 }
