@@ -74,6 +74,10 @@ header > .header-label {
 	header > .header-label {
 		margin-left: 10px;
 	}
+
+	#select-group {
+		width: 220px;
+	}
 }
 
 .screen {
