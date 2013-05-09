@@ -4,13 +4,13 @@ header("Cache-Control: max-age=0, no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: Wed, 11 Jan 1984 05:00:00 GMT");
 ?>CACHE MANIFEST
-# version 1.1 5-8-2013
+# version 1.2.1 5-8-2013
 
 CACHE:
 # Images
 res/icon.png
 res/ffos-icon-60.png
-ffos-icon-128.png
+res/ffos-icon-128.png
 
 # HTML
 index.html
