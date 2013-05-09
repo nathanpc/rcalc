@@ -19,4 +19,5 @@ Since I love all the "WebStores" I decided to publish it on several places:
 
  - [Normal Boring WebApp URL](http://rcalc.dreamintech.net/)
  - [Firefox Marketplace](https://marketplace.firefox.com/app/rcalc/)
- - [Chrome WebStore](https://chrome.google.com/webstore/detail/rcalc/aabdamdpbigmedbidolnefhepdocfjpg)
+ - [Chrome WebStore - Packaged](https://chrome.google.com/webstore/detail/ijcmcfeebbeeggajifmbkmkobkgdilkj)
+ - [Chrome WebStore - Hosted](https://chrome.google.com/webstore/detail/rcalc/aabdamdpbigmedbidolnefhepdocfjpg)
