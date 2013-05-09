@@ -10,7 +10,7 @@ This is a experiment with web platforms, so these are the platforms fully suppor
  - Desktop Chrome and Firefox
  - Most mobile web browsers
  - **Firefox OS**
- - Chrome Packaged App (Under Development)
+ - **Chrome Packaged App**
 
 
 ## Availability

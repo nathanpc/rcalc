@@ -4,7 +4,7 @@ header("Cache-Control: max-age=0, no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: Wed, 11 Jan 1984 05:00:00 GMT");
 ?>CACHE MANIFEST
-# version 1.2.1 5-8-2013
+# version 1.3.0 5-8-2013
 
 CACHE:
 # Images

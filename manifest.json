@@ -1,7 +1,8 @@
 {
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"name": "rCalc",
 	"manifest_version": 2,
+	"minimum_chrome_version": "23",
 	"description": "A awesome graphical resistance color code calculator",
 	"icons": {
 		"60": "res/ffos-icon-60.png",
@@ -9,9 +10,8 @@
 	},
 	"offline_enabled": true,
 	"app": {
-		"urls": ["*://rcalc.dreamintech.net/"],
-		"launch": {
-			"web_url": "http://rcalc.dreamintech.net/"
+		"background": {
+			"scripts": ["chrome.js"]
 		}
 	},
 	"permissions": []

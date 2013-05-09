@@ -32,7 +32,7 @@
 			}
 		</script>
 	</head>
-	<body onload="onload()">
+	<body>
 		<div id="header-canvas-container">
 			<canvas id="header-resistor" width="200" height="49"></canvas>
 		</div>
@@ -43,7 +43,7 @@
 
 		<div id="Home" class="screen" align="center">
 			<div id="select-group" align="center">
-				<select name="band1" onchange="bands_onchange(0, this)">
+				<select name="band1" id="band1">
 					<option value="black" selected>Black</option>
 					<option value="brown">Brown</option>
 					<option value="red">Red</option>
@@ -56,7 +56,7 @@
 					<option value="white">White</option>
 				</select>
 
-				<select name="band2" onchange="bands_onchange(1, this)">
+				<select name="band2" id="band2">
 					<option value="black" selected>Black</option>
 					<option value="brown">Brown</option>
 					<option value="red">Red</option>
@@ -69,7 +69,7 @@
 					<option value="white">White</option>
 				</select>
 
-				<!--<select name="band3">
+				<!--<select name="band3" id="band3">
 					<option value="black" selected>Black</option>
 					<option value="brown">Brown</option>
 					<option value="red">Red</option>
@@ -82,7 +82,7 @@
 					<option value="white">White</option>
 				</select>-->
 
-				<select name="multiplier" onchange="bands_onchange(2, this)">
+				<select name="multiplier" id="multiplier">
 					<option value="black" selected>Black</option>
 					<option value="brown">Brown</option>
 					<option value="red">Red</option>
@@ -95,7 +95,7 @@
 					<option value="white">White</option>-->
 				</select>
 
-				<select name="tolerance" onchange="bands_onchange('tolerance', this)">
+				<select name="tolerance" id="tolerance">
 					<option value="brown">Brown</option>
 					<option value="red">Red</option>
 					<option value="green">Green</option>

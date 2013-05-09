@@ -11,10 +11,30 @@ var sel_bands = {
 	tolerance: "gold"
 };
 
+// Prepare the onLoad event.
+window.addEventListener("load", onload, false);
+
 /**
  * Just a simple onLoad event handler.
  */
 function onload() {
+	// Set the selectors events.
+	document.getElementById("band1").addEventListener("change", function () {
+		bands_onchange(0, this);
+	}, false);
+
+	document.getElementById("band2").addEventListener("change", function () {
+		bands_onchange(1, this);
+	}, false);
+
+	document.getElementById("multiplier").addEventListener("change", function () {
+		bands_onchange(2, this);
+	}, false);
+
+	document.getElementById("tolerance").addEventListener("change", function () {
+		bands_onchange("tolerance", this);
+	}, false);
+
 	// Check for Cache updates.
 	window.applicationCache.addEventListener("updateready", function (e) {
 		console.log("Update available");
@@ -37,14 +57,14 @@ function onload() {
 	update_result();
 	update_canvas();
 
-	// Firefox OS stuff.
+	// Firefox OS (nuclear) stuff.
 	if (navigator.mozApps) {
 		var request = navigator.mozApps.getSelf();
 		request.onsuccess = function() {
 			if (!request.result) {
 				// Not installed
 				if (confirm("Looks like you're using a Firefox OS phone. Would you like to install this as an app?")) {
-					var app = navigator.mozApps.install("http://rcalc.dreamintech.net/manifest.webapp");
+					var app = navigator.mozApps.install("/manifest.webapp");
 
 					app.onsuccess = function (data) {
 						console.log("Installed on Firefox OS");
