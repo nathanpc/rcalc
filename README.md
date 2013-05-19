@@ -1,6 +1,6 @@
 # rCalc
 
-A simple yet cool resistance color code calculator. The idea of this WebApp is to serve as a awesome (and useful) experiment for things like Offline WebApps, Firefox OS, and Chrome Packaged Apps.
+A simple yet cool resistance color code calculator. The idea of this WebApp is to serve as a awesome (and useful) experiment for things like Offline WebApps, Firefox OS, and Chrome Packaged Apps. There's also a [desktop version](https://github.com/nathanpc/rcalc-desktop) if you don't like web stuff.
 
 
 ## Supported Platforms
