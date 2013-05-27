@@ -108,7 +108,7 @@ resistance.calc = function (bands) {
  * Pretty-print a resistance value.
  *
  * @param {String} value Resistance value.
- * @param {Number} tolerance Tolerance value.
+ * @param {String} tolerance Band color.
  * @param {Boolean} use_symbol Use ohms symbol?
  * @return {String} Pretty-printed value.
  */
