@@ -2,9 +2,10 @@
 	"version": "0.2.1",
 	"name": "rCalc",
 	"description": "A awesome graphical resistance color code calculator",
-	"launch_path": "/",
+	"launch_path": "/index.html",
 	"icons": {
 		"60": "/res/ffos-icon-60.png",
+		"120": "/res/ffos-icon-120.png",
 		"128": "/res/ffos-icon-128.png"
 	},
 	"developer": {
